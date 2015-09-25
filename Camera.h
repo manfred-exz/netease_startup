@@ -11,7 +11,7 @@ class Camera {
 public:
 	Camera();
 
-	Camera(const Pos3D& _eye, const Pos3D& _center,  const Pos3D& _up, const double& _aspect);
+	Camera(const Pos3D &_eye, const Pos3D &_up, const double &_aspect);
 
 	static mat4 lookAt(const Pos3D &eye, const Pos3D &up);
 
@@ -19,8 +19,9 @@ public:
 
 	static mat4 tranform(double near, double far, double top, double bottom, double left, double right);
 
+	Pos3D eye;
+	Pos3D up;
 private:
-	Pos3D eye, center, up;
 	double aspect;
 
 };

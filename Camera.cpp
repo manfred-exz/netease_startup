@@ -21,16 +21,14 @@ mat4 Camera::lookAt(const Pos3D& eye, const Pos3D& up) {
 	return lookat_m;
 }
 
-Camera::Camera(const Pos3D &_eye, const Pos3D &_center, const Pos3D &_up, const double &_aspect) {
+Camera::Camera(const Pos3D &_eye, const Pos3D &_up, const double &_aspect) {
 	eye = _eye;
-	center = _center;
 	up = _up;
 	aspect = _aspect;
 }
 
 Camera::Camera() {
 	eye = Pos3D(0, 0, 5);
-	center = Pos3D(0, 0, 0);
 	up = Pos3D(0, 1, 0);
 	aspect = 1;
 }

@@ -42,7 +42,8 @@ void Canvas::update() {
 //	drawLine(CanvasPos(400, 0), CanvasPos(0, 0));
 
 
-	box->render();
+//	box->render();
+	box->renderFold();
 
 	glDrawPixels(window_width, window_height, GL_RGB, GL_FLOAT, m_pixels);
 }
@@ -53,10 +54,6 @@ void Canvas::update() {
  * todo: should sort start, end pos in x-value order first. and out-of-screen pixels should be drawn */
 
 void Canvas::drawLine(const CanvasPos &startPos, const CanvasPos &endPos) {
-	// convert to integer position to raster
-//	auto startPos = Pos2D(a);
-//	auto endPos = Pos2D(b);
-
 	auto deltaX = endPos.x - startPos.x;
 	auto deltaY = endPos.y - startPos.y;
 

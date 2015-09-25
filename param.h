@@ -10,6 +10,7 @@
 extern unsigned int window_width, window_height;
 extern const int window_size;
 extern class Canvas *canvas;
+extern class Camera *camera;
 extern class Box *box;
 
 

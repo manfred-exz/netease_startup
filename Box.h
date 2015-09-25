@@ -18,6 +18,9 @@ public:
 
 	static const unsigned int NUM_VERTICES = 8;
 	CanvasPos canvasBuf[NUM_VERTICES];
+
+	void renderFold();
+
 private:
 	Pos3D origin;
 	double length;
@@ -26,6 +29,7 @@ private:
 	glm::vec4 vec4Buf[NUM_VERTICES];
 
 	void drawBoxBorder() const;
+
 };
 
 

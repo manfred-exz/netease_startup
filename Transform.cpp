@@ -29,25 +29,25 @@ mat3 Transform::rotate(const float degrees, const vec3 &axis) {
 	auto x = axis.x, y = axis.y, z = axis.z;
 	auto radians = toRadians(degrees);
 
-	auto rotate_m = glm::dot(cos(radians), mat3(1, 0, 0, 0, 1, 0, 0, 0, 1)) +
-	                (1 - cos(radians)) * mat3(x * x, x * y, x * z, x * y, y * y, y * z, x * z, y * z, z * z) +
-	                sin(radians) * mat3(0, z, -y, -z, 0, x, y, -x, 0);
+	auto rotate_m = (float)cos(radians) * mat3(1, 0, 0, 0, 1, 0, 0, 0, 1) +
+			(float)(1 - cos(radians)) * mat3(x * x, x * y, x * z, x * y, y * y, y * z, x * z, y * z, z * z) +
+			(float)sin(radians) * mat3(0, z, -y, -z, 0, x, y, -x, 0);
 
 	return rotate_m;
 }
 
-void Transform::left(float degrees, vec3 &eye, vec3 &up) {
-	auto rotate_axis = up;
-	auto rotate_m = rotate(-degrees, rotate_axis);
-
-	eye = rotate_m * eye;
-	up = rotate_m * up;
-}
-
-void Transform::up(float degrees, vec3 &eye, vec3 &up) {
-	auto rotate_axis = glm::cross(glm::normalize(eye), up);
-	auto rotate_m = rotate(-degrees, rotate_axis);
-
-	eye = rotate_m * eye;
-	up = rotate_m * up;
-}
+//void Transform::left(float degrees, vec3 &eye, vec3 &up) {
+//	auto rotate_axis = up;
+//	auto rotate_m = rotate(-degrees, rotate_axis);
+//
+//	eye = rotate_m * eye;
+//	up = rotate_m * up;
+//}
+//
+//void Transform::up(float degrees, vec3 &eye, vec3 &up) {
+//	auto rotate_axis = glm::cross(glm::normalize(eye), up);
+//	auto rotate_m = rotate(-degrees, rotate_axis);
+//
+//	eye = rotate_m * eye;
+//	up = rotate_m * up;
+//}
